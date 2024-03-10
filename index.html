@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="starsflow" style="position: fixed;z-index: -2;height: 100%;width: 100%;overflow: hidden;">
+
+    </div>
+    <div class="container">
+        <header style="height: 50px;">
+            <ul>
+                <li><a href=""><i class="fa-regular fa-file"></i>Resume</a></li>
+                <li><a href="https://github.com/Jason-Creational" target="_blank"><i class="fa-brands fa-github"></i>Github</a></li>
+            </ul>
+            <div class="position-absolute top-5 start-2">
+                <h1 class="text-start">Long Hoang </h1>
+                <img src="images/icon.png" alt="" class="ms-5 rounded float-start">
+                <br><h2>Front-end Developer & Data Manager</h2>
+            </div>
+            <div class="bg-white text-dark me-5 mt-3 p-2 w-50 start-50 h-auto position-relative rounded"><h2>About Me</h2>
+                <p>Hi there! I'm Long Hoang, a passionate and creative web developer based in SAI GON UNI. 
+                    With a strong foundation in HTML, CSS, JavaScript, Php, Python and MySQL, I enjoy turning ideas into interactive and interesting web experiences with the backbone of a secure database.</p>
+            </section></div>
+        </header>
+
+        
+
+        <div class="main-content">
+            
+            <div class="left-column mt-100">
+                
+
+                <section id="skills">
+                    <h2>Skills</h2>
+                    <h3>Programing Languages and Tools:</h3>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>MySQL</li>
+                        <li>Python</li>
+                        <li>Php</li>
+                        <li>Jquery</li>
+                    </ul>
+                </section>
+
+                <section id="language">
+                    <h2>Languages</h2>
+                    <p>English</p>
+                    <p>Vietnamese</p>
+                </section>
+                
+                <section id="education">
+                    <h2>Education</h2>
+                    <p>SAI GON UNIVERSITY (2020 - now)</p>
+                </section>
+                
+            </div>
+
+            <div class="right-column">
+                <section id="projects">
+                    <h2>Projects</h2>
+                    <div class="project-card">
+                        <h3>Course Managment</h3>
+                        <p>Programing languages: JavaSwing, MySQL</p>
+                        <p>Our online course management project is a flexible and interactive education system, 
+                            focusing on course registration, online assessments, and dynamic communication between instructors and students. 
+                            Built on the NetBean and MySQL we are committed to providing a 
+                            smooth and efficient online learning experience.</p>
+                        <p><img src="img/coding.png" alt="" style="height: 80px; "></p>
+                        <a href="https://github.com/hidatdev133/CourseManagement" target="_blank">View Project</a>
+                    </div>        
+                    <div class="project-card">
+                        <h3>Random Dice</h3>
+                        <p>Programing languages: HTML, CSS, JavaScript</p>
+                        <p>"Random Dice" is an engaging and interactive 
+                            web application that brings the excitement of rolling dice to your fingertips. This project aims to provide users with a virtual experience of rolling dice, adding
+                            an element of randomness and fun to your online activities.</p>
+                        <p><img src="img/coding.png" alt="" style="height: 80px; "></p>
+                        <a href="https://github.com/TruongChanDong/RandomDice" target="_blank">View Project</a>
+                    </div>                     
+                </section>
+            </div>
+            
+        </div>
+        <button id="backtotop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+        <footer>
+        <ul>
+            <li><i class="fa-regular fa-envelope"></i>dongtruong328@gmail.com</li>
+            <li><i class="fa-solid fa-phone"></i>+84 904 901 767</li>
+        </ul>
+    </footer>
+    </div>
+    </div>
+    <script>
+        function scrollToTop() {
+        window.scroll({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    window.onscroll = function () {
+        showBackToTopButton();
+    };
+    
+    function showBackToTopButton() {
+        var button = document.getElementById("backtotop");
+        if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    }
+
+    function stars() {
+        let e =document.createElement('div');
+        let es = document.getElementById("starsflow");
+        e.setAttribute("class", "stars");
+        document.getElementById("starsflow").appendChild(e);
+        e.style.left = Math.random() * + innerWidth * 2 + "px";
+        e.style.animation = "animate "+ Math.floor(Math.random() * (5 - 2 + 1) + 2) + 's' +" linear infinite";
+        
+
+        setTimeout(function() {
+            document.getElementById("starsflow").removeChild(e);
+        }, 5000);
+    }
+
+    
+    
+
+    setInterval(function() {
+        stars();
+    }, 800);
+
+
+    
+
+    
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+</html>
