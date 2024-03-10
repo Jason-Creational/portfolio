@@ -131,8 +131,8 @@ li {
     display: inline;
     font-size: 1.1em;
     border-radius: 8px;
-    color: #e5e4e4;
-    background-color: rgb(91, 43, 195);
+    color: #000000;
+    background-color: rgb(31, 211, 243);
     padding: 3px;
 }
 
@@ -169,7 +169,7 @@ li {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .project-card a:hover {
-    background: linear-gradient(45deg, #2193b0, #6dd5ed, #9a37cf);
+    background: linear-gradient(-45deg, #72d8f2, #7ff86f, #dabe09);
     color: #000000;
     
 }
@@ -178,7 +178,7 @@ li {
     font-size: 1.1em;
     border-radius: 8px;
     color: #fbfbfb;
-    background-color: rgb(59, 168, 43);
+    background-color: rgb(34, 116, 21);
     padding: 3px;
 }
 #backtotop {
