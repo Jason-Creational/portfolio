@@ -99,7 +99,16 @@ header p {
     display: flex;
     justify-content: space-between;
     padding-top: 80px;
-    margin-top: 200px;
+    margin-top: 330px;
+}
+
+#title {
+    width: 50%;
+}
+
+#aboutme{
+    width: 39% !important;
+    left: 56% !important;
 }
 
 .left-column, .right-column {
@@ -208,12 +217,27 @@ li {
     .left-column, .right-column {
         width: 94%;
     }
+
+    #title {
+        width: 80%;
+    }
+
+    #aboutme{
+        width: 94% !important;
+        left: 0% !important;
+    }
 }
 @media only screen and (max-width: 768px) {
     #back-to-top {
         bottom: 10px;
         right: 10px;
         padding: 8px 15px;
+    }
+}
+
+@media only screen and (min-width: 1367px) {
+    #title {
+        width: 31%;
     }
 }
 

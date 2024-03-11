@@ -14,17 +14,17 @@
 
     </div>
     <div class="container">
-        <header style="height: 50px;">
+        <header style="height: 50px;" id="header">
             <ul>
                 <li><a href=""><i class="fa-regular fa-file"></i>Resume</a></li>
                 <li><a href="https://github.com/Jason-Creational" target="_blank"><i class="fa-brands fa-github"></i>Github</a></li>
             </ul>
-            <div class="position-absolute top-5 start-2">
+            <div class="position-absolute top-5 start-2" id="title">
                 <h1 class="text-start">Long Hoang </h1>
                 <img src="images/icon.png" alt="" class="ms-5 rounded float-start">
                 <br><h2>Front-end Developer & Data Manager</h2>
             </div>
-            <div class="bg-white text-dark me-5 mt-3 ms-1 p-2 w-50 start-50 h-auto position-relative rounded"><h2>About Me</h2>
+            <div class="bg-white text-dark me-5 mt-3 mb-3 ms-5 p-2 h-auto position-relative rounded" id="aboutme"><h2>About Me</h2>
                 <p>Hi. I'm Long Hoang, a passionate and creative front-end developer/ Data Manager from SAI GON UNI. 
                     With a strong foundation in HTML, CSS, JavaScript, Php and MySQL, I enjoy turning ideas into interactive and interesting web experiences with the backbone of a secure database.</p>
             </section></div>
@@ -32,9 +32,9 @@
 
         
 
-        <div class="main-content">
+        <div class="main-content" id="maincontent">
             
-            <div class="left-column mt-100">
+            <div class="left-column mt-100" id="leftcol">
                 
 
                 <section id="skills">
@@ -65,7 +65,7 @@
                 
             </div>
 
-            <div class="right-column">
+            <div class="right-column ms-2" id="rightcol">
                 <section id="projects">
                     <h2>Projects</h2>
                     <div class="project-card">
@@ -144,7 +144,25 @@
 
 
     
-
+    window.addEventListener('resize', function(event) {
+    if (window.screen.width < 768){
+        //document.getElementById("maincontent").appendChild(document.getElementById("aboutme"));
+        document.getElementById("maincontent").insertBefore(document.getElementById("aboutme"), document.getElementById("leftcol"));
+        //document.getElementById("aboutme").classList.remove("start-55");
+        document.getElementById("aboutme").classList.add("top-2000");
+        document.getElementById("aboutme").classList.remove("w-39");
+        document.getElementById("rightcol").classList.remove("ms-2");
+        document.getElementById("aboutme").classList.remove("ms-5");
+    }
+    else {
+        document.getElementById("header").appendChild(document.getElementById("aboutme"));
+        document.getElementById("aboutme").classList.remove("top-2000");
+        //document.getElementById("aboutme").classList.add("start-55");
+        document.getElementById("aboutme").classList.add("w-39");
+        document.getElementById("aboutme").classList.remove("ms-5");
+        document.getElementById("rightcol").classList.add("ms-2");
+    }
+    }, true);
     
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
