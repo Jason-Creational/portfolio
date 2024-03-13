@@ -16,7 +16,7 @@
     <div class="container">
         <header style="height: 50px;" id="header">
             <ul>
-                <li><a href=""><i class="fa-regular fa-file"></i>Resume</a></li>
+                <li><a href="" id="resume"><i class="fa-regular fa-file"></i>Resume</a></li>
                 <li><a href="https://github.com/Jason-Creational" target="_blank"><i class="fa-brands fa-github"></i>Github</a></li>
             </ul>
             <div class="position-absolute top-5 start-2" id="title">
@@ -92,6 +92,10 @@
             
         </div>
         <button id="backtotop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+        <audio src="musics/Among The Stars.mp3" autoplay>
+            <p>If you are reading this, it is because your browser does not support the audio element.     </p>
+            <embed src="musics/Among The Stars.mp3" width="180" height="90" hidden="true" />
+            </audio>
         <footer>
         <ul>
             <li><i class="fa-regular fa-envelope"></i>tranbaolong00zz@gmail.com</li>
@@ -127,8 +131,14 @@
         e.setAttribute("class", "stars");
         document.getElementById("starsflow").appendChild(e);
         e.style.left = Math.random() * + innerWidth * 2 + "px";
-        e.style.animation = "animate "+ Math.floor(Math.random() * (5 - 2 + 1) + 2) + 's' +" linear infinite";
         
+        if (Math.floor(Math.random() * 3) == 0) {
+            e.style.animation = "animate 6s linear infinite";
+            particleFactory(e);
+        }
+        else{
+            e.style.animation = "animate "+ Math.floor(Math.random() * (5 - 2 + 1) + 2) + 's' +" linear infinite";
+        }
 
         setTimeout(function() {
             document.getElementById("starsflow").removeChild(e);
@@ -141,6 +151,60 @@
     setInterval(function() {
         stars();
     }, 800);
+
+    var obj = document.getElementById("resume");
+
+    class Particle {
+        constructor(parent) {
+        this.div = document.createElement("div");
+        this.div.classList.add("particle");
+        this.div.classList.add("twinkle");
+        this.div.id = "particle-" + Date.now();
+        if (parent != null) {
+            parent.appendChild(this.div);
+        }
+        
+        setTimeout(() => { // remove particle
+            if(this.driftIntervalId) clearInterval(this.driftIntervalId);
+                this.div.remove();
+        }, 1000);
+    }
+    
+    drift(speed = 1) {
+        var rad = Math.PI * Math.random();
+        
+        this.driftIntervalId = setInterval(() => {
+            var left = +this.div.style.left.replace("px",'');
+        var top = +this.div.style.top.replace("px",'');
+
+        left += Math.sin(rad) * speed;
+        top += Math.cos(rad) * speed;
+
+        this.div.style.left = left + "px";
+        this.div.style.top = top + "px";
+        }, 10);
+    }
+    }
+
+    var particleFactory = function(meteor) {
+        var rect = meteor.getBoundingClientRect();
+        var particle = new Particle(meteor.parentElement);
+        particle.div.style.left = rect.left + "px";
+        particle.div.style.top = rect.top + 20 + "px";
+        particle.drift(0.4);
+    
+    setTimeout(() => {
+        if (meteor != null) {
+            particleFactory(meteor);
+        }
+    }, 50);
+    };
+
+    //particleFactory(obj);
+
+    // document.getElementsByClassName("stars").forEach(element => {
+    //     particleFactory(element);
+    // });
 
 
     
