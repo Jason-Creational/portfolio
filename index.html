@@ -10,6 +10,11 @@
     <title>Long Hoang - Portfolio</title>
 </head>
 <body>
+    <audio src="musics/Among The Stars.mp3" id="audio">
+        <p>If you are reading this, it is because your browser does not support the audio element.     </p>
+        <embed src="musics/Among The Stars.mp3" width="180" height="90" hidden="true" />
+    </audio>
+
     <div id="starsflow" style="position: fixed;z-index: -2;height: 100%;width: 100%;overflow: hidden;">
 
     </div>
@@ -92,10 +97,8 @@
             
         </div>
         <button id="backtotop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
-        <audio src="musics/Among The Stars.mp3" autoplay>
-            <p>If you are reading this, it is because your browser does not support the audio element.     </p>
-            <embed src="musics/Among The Stars.mp3" width="180" height="90" hidden="true" />
-            </audio>
+      
+        <button onclick="play()" class="position-fixed bottom-0 start-0 bg-transparent border-0"><i class="fa-solid fa-play" style="color: #fff;" id="play"></i></button>
         <footer>
         <ul>
             <li><i class="fa-regular fa-envelope"></i>tranbaolong00zz@gmail.com</li>
@@ -115,6 +118,21 @@
     window.onscroll = function () {
         showBackToTopButton();
     };
+
+    function play(){
+        var btn = document.getElementById('play');
+        
+        var audio = document.getElementById("audio");
+        if(btn.classList.contains('fa-play')) {
+            btn.classList.remove('fa-play');
+            btn.classList.add('fa-pause');
+            audio.play();
+        }else if(btn.classList.contains('fa-pause')) {
+            btn.classList.remove('fa-pause');
+            btn.classList.add('fa-play');
+            audio.pause();
+        }
+    }
     
     function showBackToTopButton() {
         var button = document.getElementById("backtotop");
