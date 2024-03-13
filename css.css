@@ -52,7 +52,7 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translateY(150vh) translateX(-150vh) rotate(720deg);
+        transform: translateY(250vh) translateX(-250vh) rotate(720deg);
         opacity: 0;
     }
 }
